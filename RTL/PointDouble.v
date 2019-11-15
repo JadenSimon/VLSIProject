@@ -1,22 +1,12 @@
-// Point addition module
-// Make it purely combinational?
-// We are working over the field of F_2^7
-// Addition is just XOR
-// Use Mastrovito multiplier for multiplication
-// Need a divider that works over F_2^7
-
-module PointAdder(clk, point1, point2, load, sum);
-	input [13:0] point1;
-	input [13:0] point2;
+module PointDouble(point, clk, load, sum);	
+	input [13:0] point;
 	input load, clk;
 	output [13:0] sum;
 
-	wire [6:0] point1x;
-	wire [6:0] point1y;
-	wire [6:0] point2x;
-	wire [6:0] point2y;
-	wire [6:0] point3x;
-	wire [6:0] point3y;
+	wire [6:0] pointx;
+	wire [6:0] pointy;
+	wire [6:0] sumx;
+	wire [6:0] sumy;
 	wire [6:0] partial;
 	wire [6:0] numerator;
 	wire [6:0] denominator;
@@ -24,13 +14,12 @@ module PointAdder(clk, point1, point2, load, sum);
 	wire [6:0] slopeSquared;
 
 	// Extract the point values out of the 14 bit inputs
- 	assign point1x = point1[6:0];
-	assign point1y = point1[13:7];
-	assign point2x = point2[6:0];
-	assign point2y = point2[13:7];
+ 	assign pointx = point[6:0];
+	assign pointy = point[13:7];
 
 	// calculate slope λ = (y1 + y2)/(x1 + x2)
-	assign numerator = point1y ^ point2y;
+	// tangent is (3x^2 + 2x) / (2y + x)
+	assign numerator = point1x;
 	assign denominator = point1x ^ point2x;
 	GCD7 divider(clk, numerator, denominator, slope, load);
 
@@ -45,6 +34,5 @@ module PointAdder(clk, point1, point2, load, sum);
 	assign point3y = ((out ^ point3x) ^ point1y);
 
 	// concatenate the points to output
-	assign sum = {point3y, point3x};
-
-endmodule
+	assign sum = {point3x, point3y};
+endmodule 
