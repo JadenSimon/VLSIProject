@@ -13,40 +13,49 @@ module GCD7(clk, a, b, c, load);
 	reg [6:0] acc;
 	reg [6:0] temp;
 
+	wire [6:0] adder;
+	wire [6:0] v_half;
+	wire [6:0] u_half;
+	wire [6:0] adder_half;
+	assign adder = u ^ v;
+
+	assign v_half = 7'b0;
+	assign u_half = 7'b0;
+	assign adder_half = v_half;
 	always@(posedge clk) begin
 		if (load) begin
 			u = a;
 			v = b;
 			acc = 0;
-		end	
-
-		if (u[0] == 0 && v[0] == 0) begin
-			acc = acc + 1'b1;
-			u = u >> 2;
-			v = v >> 2;
-		end
-		else if (u[0] == 0 && v[0] == 1) begin
-			u = u >> 2;
-		end
-		else if (u[0] == 1 && v[0] == 0) begin
-			v = v >> 2;
-		end
-		else begin
-			if (u >= v) begin
-				u = (u ^ v) >> 2;
+		end else begin
+			if (u[0] == 0 && v[0] == 0) begin
+				acc = acc + 1'b1;
+				u = u_half;
+				v = v_half;
+			end
+			else if (u[0] == 0 && v[0] == 1) begin
+				u = u_half;
+			end
+			else if (u[0] == 1 && v[0] == 0) begin
+				v = v_half;
 			end
 			else begin
-				temp = u;
-				u = (v ^ u) >> 2;
-				v = temp;
+				if (u >= v) begin
+					u = adder;
+				end
+				else begin
+					temp = u;
+					u = adder;
+					v = temp;
+				end
 			end
-		end
 
-		if (u == v || u == 0) begin
-			c = v << acc;
-		end
-		else begin
-			c = c;
+			if (u == v || u == 0) begin
+				c = v & acc;
+			end
+			else begin
+				c = c;
+			end
 		end
 	end
 

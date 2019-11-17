@@ -20,6 +20,7 @@ module PointAdder(clk, point1, point2, load, sum);
 	wire [6:0] partial;
 	wire [6:0] numerator;
 	wire [6:0] denominator;
+	wire [6:0] denominator_inv;
 	wire [6:0] slope;
 	wire [6:0] slopeSquared;
 
@@ -32,7 +33,8 @@ module PointAdder(clk, point1, point2, load, sum);
 	// calculate slope λ = (y1 + y2)/(x1 + x2)
 	assign numerator = point1y ^ point2y;
 	assign denominator = point1x ^ point2x;
-	GCD7 divider(clk, numerator, denominator, slope, load);
+	Inverse divider(denominator, denominator_inv, clk, load);
+	Mastrovito7 mult2(numerator, denominator_inv, slope);
 
 	// calculate x3 = λ2 + λ + x1 + x2 + 1
 	Mastrovito7 square(slope, slope, slopeSquared);

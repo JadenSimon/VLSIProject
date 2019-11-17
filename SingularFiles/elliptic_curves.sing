@@ -1,0 +1,131 @@
+// Some helpful procedures to be used on elliptic curves
+
+ring r = (2, X), (a, b, c), lp;
+minpoly = X7 + X + 1;
+
+proc divide(poly f1, poly f2)
+{
+	poly q = 0;
+	poly h = 0;
+
+	while (deg(f2) <= deg(f1) && f1 != 0)
+	{
+		h = lead(f1)/lead(f2);
+		q = q + h;
+		f1 = f1 - (h * f2);
+	}
+
+	return(q, f1);
+}
+
+proc gcd(poly f1, poly f2)
+{
+	poly r = f2;
+	poly old_r = f1;
+	poly q = 0;
+	poly temp = 0;
+
+	while (r != 0)
+	{
+		q = divide(r, old_r);
+		temp = r;
+		r = old_r - (q * temp).
+		old_r = temp;
+	}
+
+	return(old_r);
+}
+
+// Checks if points lie on our curve y^2 + xy = x^3 + x^2 + 1
+proc check_point(poly x, poly y)
+{
+	poly l = y^2 + (x * y);
+	poly r = x^3 + x^2 + 1;
+
+	return(l == r);
+}
+
+proc double_point(poly x, poly y)
+{
+	poly m = (x^2 + y) / (x);
+
+	poly x2 = m^2 + m + 1;
+	poly y2 = m * (x + x2) + x2 + y;
+
+	return(x2, y2);
+}
+
+// Adds two points
+proc add_points(poly x1, poly y1, poly x2, poly y2)
+{
+	poly m = 0;
+	if (x1 != x2)
+	{
+		m = (y1 + y2) / (x1 + x2);
+	}
+
+	poly x3 = m^2 + m + x1 + x2 + 1;
+	poly y3 = m * (x1 + x3) + x3 + y1;
+
+	return(x3, y3);
+}
+
+proc scalar_multiply(poly x, poly y, int k)
+{
+	poly z_x = x;
+	poly z_y = y;
+
+	for (int i = 0; i < (k - 1); i++)
+	{
+		if (z_x == x && z_y == y)
+		{
+			z_x, z_y = double_point(z_x, z_y);
+		}
+		else
+		{
+			z_x, z_y = add_points(z_x, z_y, x, y);
+		}
+	}	
+
+	return(z_x, z_y);
+}
+
+// Prints out all valid points on the current curve
+proc all_points()
+{
+	poly x = 0;
+	poly y = 1;	
+	int count = 0;
+	int i = 0;
+	int j = 0;
+
+	for (i = 0; i < 128; i++)
+	{
+		y = 1;
+
+		for (j = 0; j < 128; j++)
+		{
+			if (check_point(x, y))
+			{
+				printf("Found point: ");
+				x;
+				y;
+				count = count + 1;
+			}
+
+			y = y * X;
+		}
+
+		if (x == 0)
+		{
+			x = 1;
+		}
+		else
+		{
+			x = x * X;
+		}
+	}
+
+	printf("Total points found: ");
+	count;
+}

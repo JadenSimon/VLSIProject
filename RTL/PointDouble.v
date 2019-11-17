@@ -5,11 +5,11 @@ module PointDouble(point, clk, load, sum);
 
 	wire [6:0] pointx;
 	wire [6:0] pointy;
-	wire [6:0] sumx;
-	wire [6:0] sumy;
+	wire [6:0] point3x;
+	wire [6:0] point3y;
 	wire [6:0] partial;
-	wire [6:0] numerator;
-	wire [6:0] denominator;
+	wire [6:0] partial2;
+	wire [6:0] partial3;
 	wire [6:0] slope;
 	wire [6:0] slopeSquared;
 
@@ -17,22 +17,21 @@ module PointDouble(point, clk, load, sum);
  	assign pointx = point[6:0];
 	assign pointy = point[13:7];
 
-	// calculate slope λ = (y1 + y2)/(x1 + x2)
-	// tangent is (3x^2 + 2x) / (2y + x)
-	assign numerator = point1x;
-	assign denominator = point1x ^ point2x;
-	GCD7 divider(clk, numerator, denominator, slope, load);
+	// calculate slope λ = (x^2 + y) / x = x + y/x
+	Inverse divider(pointx, partial2, clk, load);
+	Mastrovito7 mult2(partial2, pointy, partial3);
+	assign slope = pointx ^ partial3;
 
 	// calculate x3 = λ2 + λ + x1 + x2 + 1
-	Mastrovito7 square(slope, slope, slopeSquared);
-	assign point3x = (slopeSquared ^ slope) ^ (denominator ^ 7'b1);
+	Squarer square2(slope, slopeSquared);
+	assign point3x = (slopeSquared ^ slope ^ 7'b1);
 
 	// calculate y3 = λ(x1 + x3) + x3 + y1
 	wire [6:0] out;
-	assign partial = point1x ^ point3x;
+	assign partial = pointx ^ point3x;
 	Mastrovito7 mult(slope, partial, out);
-	assign point3y = ((out ^ point3x) ^ point1y);
+	assign point3y = ((out ^ point3x) ^ pointy);
 
 	// concatenate the points to output
-	assign sum = {point3x, point3y};
+	assign sum = {point3y, point3x};
 endmodule 
