@@ -10,7 +10,9 @@ module PointMultiplier_tb();
 	
 	initial begin
 		point = 14'b11101111000001; // x = X6 + 1, y = X6 + X5 + X4 + X2 + X + 1
-		scalar = 7'b0000011;
+		scalar = 7'b1001011;
+		//point = 14'b11010111110001; 
+		//scalar = 7'b0000111;
 		start = 0;
 		clk = 0;
 	end

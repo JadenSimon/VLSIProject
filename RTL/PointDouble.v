@@ -33,5 +33,6 @@ module PointDouble(point, clk, load, sum);
 	assign point3y = ((out ^ point3x) ^ pointy);
 
 	// concatenate the points to output
-	assign sum = {point3y, point3x};
+	// if pointx == 0 then return (0, 0)
+	assign sum = (pointx == 0) ? 14'b0 : {point3y, point3x};
 endmodule 

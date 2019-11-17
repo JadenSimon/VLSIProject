@@ -1,4 +1,5 @@
 // Some helpful procedures to be used on elliptic curves
+// Point at infinity is (0,0) and is defined as P + O = P
 
 ring r = (2, X), (a, b, c), lp;
 minpoly = X7 + X + 1;
@@ -47,6 +48,11 @@ proc check_point(poly x, poly y)
 
 proc double_point(poly x, poly y)
 {
+	if (x == 0)
+	{
+		return(0, 0);
+	}
+
 	poly m = (x^2 + y) / (x);
 
 	poly x2 = m^2 + m + 1;
@@ -58,6 +64,22 @@ proc double_point(poly x, poly y)
 // Adds two points
 proc add_points(poly x1, poly y1, poly x2, poly y2)
 {
+	if (x1 == 0 && y1 == 0)
+	{
+		return(x2, y2);
+	}
+
+	if (x2 == 0 && y2 == 0)
+	{
+		return (x1, y1);
+	}
+
+	// Check for point at infinity
+	if (x1 == x2) 
+	{
+		return (0, 0)
+	}
+
 	poly m = 0;
 	if (x1 != x2)
 	{
@@ -88,6 +110,22 @@ proc scalar_multiply(poly x, poly y, int k)
 	}	
 
 	return(z_x, z_y);
+}
+
+// Finds the order of a point
+proc point_order(poly x, poly y)
+{
+	int c = 2;
+	poly x_n, y_n;
+	x_n, y_n = scalar_multiply(x, y, 2);
+
+	while (x_n != 0)
+	{
+		c = c + 1;
+		x_n, y_n = add_points(x, y, x_n, y_n);
+	}
+
+	return(c);
 }
 
 // Prints out all valid points on the current curve
@@ -128,4 +166,10 @@ proc all_points()
 
 	printf("Total points found: ");
 	count;
+}
+
+// Find some generator points to use with their orders
+proc generator_points()
+{
+	
 }

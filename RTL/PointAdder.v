@@ -47,6 +47,6 @@ module PointAdder(clk, point1, point2, load, sum);
 	assign point3y = ((out ^ point3x) ^ point1y);
 
 	// concatenate the points to output
-	assign sum = {point3y, point3x};
+	assign sum = (point1 == 0) ? point2 : ((point2 == 0) ? point1 : ((point1x == point2x) ? 14'b0 : {point3y, point3x}));
 
 endmodule
