@@ -37,7 +37,7 @@ module PointAdder(clk, point1, point2, load, sum);
 	Mastrovito7 mult2(numerator, denominator_inv, slope);
 
 	// calculate x3 = λ2 + λ + x1 + x2 + 1
-	Mastrovito7 square(slope, slope, slopeSquared);
+	Squarer square(slope, slopeSquared);
 	assign point3x = (slopeSquared ^ slope) ^ (denominator ^ 7'b1);
 
 	// calculate y3 = λ(x1 + x3) + x3 + y1

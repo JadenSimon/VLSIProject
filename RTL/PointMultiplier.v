@@ -23,6 +23,7 @@ module PointMultiplier(point, scalar, clk, start, result, done);
 	PointDouble doubler(currentP, clk, cycle, doubledPoint);
 	PointAdder adder(clk, currentP, accumulator, cycle, addedPoint);
 
+	// Takes 32 clock cycles per iteration
 	always@(posedge clk) begin
 		if (start) begin
 			counter = 7'b0;
@@ -36,7 +37,7 @@ module PointMultiplier(point, scalar, clk, start, result, done);
 			if (counter[7:5] == 3'b111) begin // Terminate
 				result = accumulator;
 				done = 1'b1;
-			end else if (counter[4:0] == 5'b11111) begin // Upon completion of a cycle, update registers
+			end else if (counter[4:0] == 5'b11111) begin // Upon completion of a cycle, update registers 
 				if (currentS[0] == 1'b1)
 					accumulator = addedPoint;
 

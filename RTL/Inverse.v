@@ -1,4 +1,5 @@
-// Finds inverse mod P(X)
+// Finds inverse of a polynomial mod P(X)
+// Uses extended binary GCD algorithm
 
 module Inverse(a, b, clk, load);
 	input [6:0] a;
@@ -30,20 +31,22 @@ module Inverse(a, b, clk, load);
 			h2 = 8'b0;
 			k1 = 8'b0;
 			k2 = 8'b1;
-		end else if (s == 0) begin
+		end else if (s == 0) begin // If is s is 0, output the result
 			b = k2[6:0];
 		end else begin
-			if (s[0] == 0) begin
+			// If s is even then we can divde it by X
+			// By doing so, we must then check our accumalators
+			if (s[0] == 0) begin 
 				s = s >> 1;
 
-				if (h1[0] == 0 && h2[0] == 0) begin
+				if (h1[0] == 0 && h2[0] == 0) begin // If both accumalators are even, then just divide by X
 					h1 = h1 >> 1;
 					h2 = h2 >> 1;
-				end else begin
+				end else begin // Otherwise, we must add our original s and t to our accumalators, then halve them
 					h1 = h1_half;
 					h2 = h2_half ^ 7'b1000000;
 				end
-			end else if (t[0] == 0) begin 
+			end else if (t[0] == 0) begin // Same process for t
 				t = t >> 1;
 
 				if (k1[0] == 0 && k2[0] == 0) begin
@@ -53,11 +56,11 @@ module Inverse(a, b, clk, load);
 					k1 = k1_half;
 					k2 = k2_half ^ 7'b1000000;
 				end
-			end else if (s >= t) begin
+			end else if (s >= t) begin // If s is greater than t, just add everything up (which is subtraction in fields characteristic 2)
 				s = s ^ t;
 				h1 = h1 ^ k1;
 				h2 = h2 ^ k2;
-			end else begin 
+			end else begin // Otherwise, subtract s from t (same for accumulators)
 				t = s ^ t;
 				k1 = h1 ^ k1;
 				k2 = h2 ^ k2;			
