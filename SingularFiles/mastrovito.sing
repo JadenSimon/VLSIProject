@@ -1,0 +1,53 @@
+ring r = (2, X), (Z_spec, Z, A, B, a_0, a_1, a_2, a_3, a_4, a_5, a_6, b_0, b_1, b_2, b_3, b_4, b_5, b_6, s_0, s_1, s_2, s_3, s_4, s_5, s_6, s_7, s_8, s_9, s_10, s_11, s_12, z_0, z_1, z_2, z_3, z_4, z_5, z_6, t), lp;
+
+//ring r = (2, X), (Z_spec, Z, A, B, a_0, a_1, a_2, b_0, b_1, b_2, s_0, s_1, s_2, s_3, s_4, z_0, z_1, z_2, t), lp;
+
+minpoly = X7 + X + 1;
+
+poly f_spec = Z_spec + A*B; //Spec
+
+poly f1 = A + a_0 + a_1*X + a_2*X^2 + a_3*X^3 + a_4*X^4 + a_5*X^5 + a_5*X^5 + a_6*X^6;
+
+poly f2 = B + b_0 + b_1*X + b_2*X^2 + b_3*X^3 + b_4*X^4 + b_5*X^5 + b_6*X^6;
+
+poly f3 = Z + z_0 + z_1*X + z_2*X^2 + z_3*X^3 + z_4*X^4 + z_5*X^5 + z_6*X^6;
+
+poly f4 = s_0 + a_0*b_0;
+poly f5 = s_1 + a_1*b_0 + a_0*b_1;
+poly f6 = s_2 + a_2*b_0 + a_1*b_1 + a_0*b_2;
+poly f7 = s_3 + a_3*b_0 + a_2*b_1 + a_1*b_2 + a_0*b_3;
+poly f8 = s_4 + a_4*b_0 + a_3*b_1 + a_2*b_2 + a_1*b_3 + a_0*b_4;
+poly f9 = s_5 + a_5*b_0 + a_4*b_1 + a_3*b_2 + a_2*b_3 + a_1*b_4 + a_0*b_5;
+poly f10 = s_6 + a_6*b_0 + a_5*b_1 + a_4*b_2 + a_3*b_3 + a_2*b_4 + a_1*b_5 + a_0*b_6;
+poly f11 = s_7 + a_6*b_1 + a_5*b_2 + a_4*b_3 + a_3*b_4 + a_2*b_5 * a_1*b_6;
+poly f12 = s_8 + a_6*b_2 + a_5*b_3 + a_4*b_4 + a_3*b_5 + a_2*b_6;
+poly f13 = s_9 + a_6*b_3 + a_5*b_4 + a_4*b_5 + a_3*b_6;
+poly f14 = s_10 + a_6*b_4 + a_5*b_5 + a_4*b_6;
+poly f15 = s_11 + a_6*b_5 + a_5*b_6;
+poly f16 = s_12 + a_6*b_6;
+
+poly f17 = z_0 + s_0;
+poly f18 = z_1 + s_1 + s_7 + s_8;
+poly f19 = z_2 + s_2 + s_8 + s_9;
+poly f20 = z_3 + s_3 + s_9 + s_10;
+poly f21 = z_4 + s_4 + s_11 + s_10;
+poly f22 = z_5 + s_5 + s_11 + s_12;
+poly f23 = z_6 + s_6 + s_12;
+
+//MITER!!!!
+poly f_m = t*(Z_spec-Z) + 1;
+
+ideal J = f_spec, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f_m;
+
+printf("Idea J is: ");
+
+J;
+
+//ideal G = groebner(J);
+
+//printf("Groebner basis of G of ideal J:")
+
+//G;
+
+printf("");
+printf("");
