@@ -1,0 +1,105 @@
+/home/melvinb/VLSIproject/RTL/PointDouble.v {1 {vlog -work VLSIProject -vopt -stats=none /home/melvinb/VLSIproject/RTL/PointDouble.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module PointDouble
+
+Top level modules:
+	PointDouble
+
+} {} {}} /home/melvinb/VLSIproject/RTL/GCD3_tb.v {1 {vlog -work VLSIProject -vopt -stats=none /home/melvinb/VLSIproject/RTL/GCD3_tb.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module GCD3_tb
+
+Top level modules:
+	GCD3_tb
+
+} {} {}} /home/melvinb/VLSIproject/RTL/GCD3.v {1 {vlog -work VLSIProject -vopt -stats=none /home/melvinb/VLSIproject/RTL/GCD3.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module GCD3
+
+Top level modules:
+	GCD3
+
+} {} {}} /home/melvinb/VLSIproject/RTL/mastrovito_7bit_tb.v {1 {vlog -work work -vopt -stats=none /home/melvinb/VLSIproject/RTL/mastrovito_7bit_tb.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module mastrovito_7bit_tb
+
+Top level modules:
+	mastrovito_7bit_tb
+
+} {} {}} /home/melvinb/VLSIproject/RTL/PointAdder.v {1 {vlog -work VLSIProject -vopt -stats=none /home/melvinb/VLSIproject/RTL/PointAdder.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module PointAdder
+
+Top level modules:
+	PointAdder
+
+} {} {}} /home/melvinb/VLSIproject/RTL/Halver.v {1 {vlog -work work -vopt -stats=none /home/melvinb/VLSIproject/RTL/Halver.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module Halver
+
+Top level modules:
+	Halver
+
+} {} {}} /home/melvinb/VLSIproject/RTL/Squarer.v {1 {vlog -work work -vopt -stats=none /home/melvinb/VLSIproject/RTL/Squarer.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module Squarer
+
+Top level modules:
+	Squarer
+
+} {} {}} /home/melvinb/VLSIproject/RTL/Inverse.v {1 {vlog -work work -vopt -stats=none /home/melvinb/VLSIproject/RTL/Inverse.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module Inverse
+
+Top level modules:
+	Inverse
+
+} {} {}} /home/melvinb/VLSIproject/RTL/Mastrovito_7bit.v {1 {vlog -work VLSIProject -vopt -stats=none /home/melvinb/VLSIproject/RTL/Mastrovito_7bit.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module Mastrovito7
+
+Top level modules:
+	Mastrovito7
+
+} {} {}} /home/melvinb/VLSIproject/RTL/GCD7.v {1 {vlog -work VLSIProject -vopt -stats=none /home/melvinb/VLSIproject/RTL/GCD7.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module GCD7
+
+Top level modules:
+	GCD7
+
+} {} {}} /home/melvinb/VLSIproject/RTL/PointMultiplier_tb.v {1 {vlog -work work -vopt -stats=none /home/melvinb/VLSIproject/RTL/PointMultiplier_tb.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module PointMultiplier_tb
+
+Top level modules:
+	PointMultiplier_tb
+
+} {} {}} /home/melvinb/VLSIproject/RTL/PointAdder_tb.v {1 {vlog -work VLSIProject -vopt -stats=none /home/melvinb/VLSIproject/RTL/PointAdder_tb.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module PointAdder_tb
+
+Top level modules:
+	PointAdder_tb
+
+} {} {}} /home/melvinb/VLSIproject/RTL/PointMultiplier.v {1 {vlog -work VLSIProject -vopt -stats=none /home/melvinb/VLSIproject/RTL/PointMultiplier.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module PointMultiplier
+
+Top level modules:
+	PointMultiplier
+
+} {} {}} /home/melvinb/VLSIproject/RTL/ecc.v {1 {vlog -work work -vopt -stats=none /home/melvinb/VLSIproject/RTL/ecc.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module Halver
+-- Compiling module Squarer
+-- Compiling module Mastrovito7
+-- Compiling module Inverse
+-- Compiling module PointAdder
+-- Compiling module PointDouble
+-- Compiling module PointMultiplier
+
+Top level modules:
+	PointMultiplier
+
+} {} {}}

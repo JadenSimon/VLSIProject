@@ -15,7 +15,7 @@ set SDC_DIR 	 "${BASE_DIR}/SDC"
 set DDC_DIR 	 "${BASE_DIR}/DDC"
 
 #  dependency rules
-set HDL_FILES $RTL_DIR/ecc.sv
+set HDL_FILES $RTL_DIR/ecc.v
 
 #  Start from fresh state
 remove_design -designs

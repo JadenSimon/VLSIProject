@@ -1,12 +1,13 @@
+`timescale 1ns/1ps
 // Main test bench for point multiplication
-module PointMultiplier_tb();
+module ecau_tb();
 	reg [13:0] point;
 	reg [6:0] scalar;
 	wire [13:0] result;
 	wire done;
 	reg clk, start;
 
-	PointMultiplier pm(point, scalar, clk, start, result, done);
+	ecau_top top(clk, point, scalar, result, start, done);
 	
 	initial begin
 		point = 14'b11101111000001; // x = X6 + 1, y = X6 + X5 + X4 + X2 + X + 1

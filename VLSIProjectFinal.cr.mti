@@ -1,0 +1,118 @@
+/home/melvinb/vlsi_labs/verilog/mapped/ecau_placed_modelsim.v {1 {vlog -work work -vopt -stats=none /home/melvinb/vlsi_labs/verilog/mapped/ecau_placed_modelsim.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module pad_bidirhe_buffered
+-- Compiling module Halver_7
+-- Compiling module Halver_4
+-- Compiling module pad_out_buffered
+-- Compiling module pad_out_buffered_SPC_1
+-- Compiling module pad_out_buffered_SPC_2
+-- Compiling module pad_out_buffered_SPC_3
+-- Compiling module pad_out_buffered_SPC_4
+-- Compiling module pad_out_buffered_SPC_5
+-- Compiling module pad_out_buffered_SPC_6
+-- Compiling module pad_out_buffered_SPC_7
+-- Compiling module pad_out_buffered_SPC_8
+-- Compiling module pad_out_buffered_SPC_9
+-- Compiling module pad_out_buffered_SPC_10
+-- Compiling module pad_out_buffered_SPC_11
+-- Compiling module pad_out_buffered_SPC_12
+-- Compiling module pad_out_buffered_SPC_13
+-- Compiling module pad_out_buffered_SPC_14
+-- Compiling module Halver_5
+-- Compiling module Halver_6
+-- Compiling module Inverse_1
+-- Compiling module Mastrovito7_3
+-- Compiling module Squarer_1
+-- Compiling module Mastrovito7_2
+-- Compiling module PointDouble
+-- Compiling module Halver_0
+-- Compiling module Halver_1
+-- Compiling module Halver_2
+-- Compiling module Halver_3
+-- Compiling module Inverse_0
+-- Compiling module Mastrovito7_0
+-- Compiling module Mastrovito7_1
+-- Compiling module Squarer_0
+-- Compiling module PointAdder
+-- Compiling module ecau
+-- Compiling module ecau_top
+
+Top level modules:
+	pad_bidirhe_buffered
+	ecau_top
+
+} {} {}} /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/verilog/padlib_tsmc180.v {1 {vlog -work work -vopt -stats=none /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/verilog/padlib_tsmc180.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module pad_in
+-- Compiling module pad_out
+-- Compiling module pad_bidirhe
+-- Compiling module pad_vdd
+-- Compiling module pad_gnd
+-- Compiling module pad_corner
+-- Compiling module pad_ana
+
+Top level modules:
+	pad_in
+	pad_out
+	pad_bidirhe
+	pad_vdd
+	pad_gnd
+	pad_corner
+	pad_ana
+
+} {} {}} /home/melvinb/VLSIproject/ecau_tb.v {1 {vlog -work work -vopt -stats=none /home/melvinb/VLSIproject/ecau_tb.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module ecau_tb
+
+Top level modules:
+	ecau_tb
+
+} {} {}} /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/verilog/sclib_tsmc180.v {1 {vlog -work work -vopt -stats=none /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/verilog/sclib_tsmc180.v
+Model Technology ModelSim SE-64 vlog 10.5c Compiler 2016.07 Jul 20 2016
+-- Compiling module AND2X1
+-- Compiling module NAND2X1
+-- Compiling module OR2X1
+-- Compiling module NOR2X1
+-- Compiling module XOR2X1
+-- Compiling module INVX1
+-- Compiling module INVX2
+-- Compiling module INVX4
+-- Compiling module INVX8
+-- Compiling module INVX16
+-- Compiling module INVX32
+-- Compiling module BUFX1
+-- Compiling module MUX2X1
+-- Compiling module NAND3X1
+-- Compiling module DFFQX1
+-- Compiling module DFFQQBX1
+-- Compiling module DFFQBX1
+-- Compiling module DFFQSRX1
+-- Compiling module TIE1
+-- Compiling module TIE0
+-- Compiling module ANTENNA
+-- Compiling UDP udp_dff
+
+Top level modules:
+	AND2X1
+	NAND2X1
+	OR2X1
+	NOR2X1
+	XOR2X1
+	INVX1
+	INVX2
+	INVX4
+	INVX8
+	INVX16
+	INVX32
+	BUFX1
+	MUX2X1
+	NAND3X1
+	DFFQX1
+	DFFQQBX1
+	DFFQBX1
+	DFFQSRX1
+	TIE1
+	TIE0
+	ANTENNA
+
+} {} {}}

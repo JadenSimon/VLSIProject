@@ -11,4 +11,4 @@ module Halver(a, b);
 	assign b[5] = a[6];
 	assign b[6] = a[0];
 
-endmodule
+endmodule 

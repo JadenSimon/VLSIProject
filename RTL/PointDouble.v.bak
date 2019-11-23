@@ -1,0 +1,37 @@
+module PointDouble(point, clk, load, sum);	
+	input [13:0] point;
+	input load, clk;
+	output [13:0] sum;
+
+	wire [6:0] pointx;
+	wire [6:0] pointy;
+	wire [6:0] sumx;
+	wire [6:0] sumy;
+	wire [6:0] partial;
+	wire [6:0] numerator;
+	wire [6:0] denominator;
+	wire [6:0] slope;
+	wire [6:0] slopeSquared;
+
+	// Extract the point values out of the 14 bit inputs
+ 	assign pointx = point[6:0];
+	assign pointy = point[13:7];
+
+	// calculate slope λ = (y1 + y2)/(x1 + x2)
+	assign numerator = point1x;
+	assign denominator = point1x ^ point2x;
+	GCD7 divider(clk, numerator, denominator, slope, load);
+
+	// calculate x3 = λ2 + λ + x1 + x2 + 1
+	Mastrovito7 square(slope, slope, slopeSquared);
+	assign point3x = (slopeSquared ^ slope) ^ (denominator ^ 7'b1);
+
+	// calculate y3 = λ(x1 + x3) + x3 + y1
+	wire [6:0] out;
+	assign partial = point1x ^ point3x;
+	Mastrovito7 mult(slope, partial, out);
+	assign point3y = ((out ^ point3x) ^ point1y);
+
+	// concatenate the points to output
+	assign sum = {point3x, point3y};
+endmodule 

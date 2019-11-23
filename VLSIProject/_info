@@ -1,0 +1,328 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/melvinb/VLSIproject
+T_opt
+!s110 1573778063
+Vc4d?4bbMoCEY3zdWn^OV^2
+04 4 7 work GCD7 fast__1 0
+04 11 7 work Mastrovito7 fast__1 0
+04 10 7 work PointAdder fast__1 0
+Z1 04 13 4 work PointAdder_tb fast 0
+=1-2c56dc95e7d8-5dcdf28f-d90f-4cdd
+Z2 o-quiet -auto_acc_if_foreign -work VLSIProject
+Z3 tCvgOpt 0
+n@_opt
+Z4 OL;O;10.5c;63
+R0
+T_opt1
+!s110 1573779238
+V;bW3Ol0Z1;mkT]9h@YB5L3
+R1
+=1-2c56dc95e7d8-5dcdf726-92b11-5422
+o-quiet -auto_acc_if_foreign -work VLSIProject +acc
+R3
+n@_opt1
+R4
+R0
+T_opt2
+!s110 1573777923
+Vmf2XMUNFL0:84k7bU6RII0
+R1
+=1-2c56dc95e7d8-5dcdf203-88c5d-4bb5
+R2
+R3
+n@_opt2
+R4
+R0
+vGCD3
+Z5 !s110 1574373613
+!i10b 1
+!s100 :l[F=Cz=0=VL:0[1z[3IH0
+IVR8X_0>EgL^G22<S;`oZ]3
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z7 w1573771031
+8/home/melvinb/VLSIproject/RTL/GCD3.v
+F/home/melvinb/VLSIproject/RTL/GCD3.v
+L0 5
+Z8 OL;L;10.5c;63
+r1
+!s85 0
+31
+Z9 !s108 1574373613.000000
+!s107 /home/melvinb/VLSIproject/RTL/GCD3.v|
+!s90 -reportprogress|300|-work|VLSIProject|-vopt|-stats=none|/home/melvinb/VLSIproject/RTL/GCD3.v|
+!i113 0
+Z10 o-work VLSIProject -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+n@g@c@d3
+vGCD3_tb
+R5
+!i10b 1
+!s100 1KLIn?]0Y6@;3XN:[:NYd0
+I]7G43LC^Vj0X<11aVWL;`0
+R6
+R0
+R7
+8/home/melvinb/VLSIproject/RTL/GCD3_tb.v
+F/home/melvinb/VLSIproject/RTL/GCD3_tb.v
+L0 3
+R8
+r1
+!s85 0
+31
+R9
+!s107 /home/melvinb/VLSIproject/RTL/GCD3_tb.v|
+!s90 -reportprogress|300|-work|VLSIProject|-vopt|-stats=none|/home/melvinb/VLSIproject/RTL/GCD3_tb.v|
+!i113 0
+R10
+R3
+n@g@c@d3_tb
+vGCD7
+R5
+!i10b 1
+!s100 A=k[OJd_F7cWLAZZ=c4:I2
+IQH@;ViN1Qh^IG7Dz]NQ9`1
+R6
+R0
+Z11 w1574372115
+8/home/melvinb/VLSIproject/RTL/GCD7.v
+F/home/melvinb/VLSIproject/RTL/GCD7.v
+L0 5
+R8
+r1
+!s85 0
+31
+R9
+!s107 /home/melvinb/VLSIproject/RTL/GCD7.v|
+!s90 -reportprogress|300|-work|VLSIProject|-vopt|-stats=none|/home/melvinb/VLSIproject/RTL/GCD7.v|
+!i113 0
+R10
+R3
+n@g@c@d7
+vHalver
+Z12 !s110 1574373795
+!i10b 1
+!s100 CVUZ:IL_amOA5P]6=0`cg3
+IJJFnC`m_hfYk]Te@6;L1=0
+R6
+R0
+Z13 w1574373786
+Z14 8/home/melvinb/VLSIproject/RTL/ecc.v
+Z15 F/home/melvinb/VLSIproject/RTL/ecc.v
+L0 2
+R8
+r1
+!s85 0
+31
+Z16 !s108 1574373795.000000
+Z17 !s107 /home/melvinb/VLSIproject/RTL/ecc.v|
+Z18 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/melvinb/VLSIproject/RTL/ecc.v|
+!i113 0
+Z19 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+n@halver
+vInverse
+R12
+!i10b 1
+!s100 j8kX24d7H38R=[T3>QiFT3
+I6ZBV0jSbEYGe39;aLk8[m1
+R6
+R0
+R13
+R14
+R15
+L0 69
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R3
+n@inverse
+vMastrovito7
+R12
+!i10b 1
+!s100 iRH0Ee`=2DHdd>9IzOYni0
+I=8XJL7ji=@@@9eF[n>7`O0
+R6
+R0
+R13
+R14
+R15
+L0 37
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R3
+n@mastrovito7
+vmastrovito_7bit_tb
+!s110 1574373614
+!i10b 1
+!s100 ]mA2HHnJ^5CmFS[gEDYA^1
+IHQi4De`:?E5g^Kgz`YCjd2
+R6
+R0
+w1573779323
+8/home/melvinb/VLSIproject/RTL/mastrovito_7bit_tb.v
+F/home/melvinb/VLSIproject/RTL/mastrovito_7bit_tb.v
+L0 3
+R8
+r1
+!s85 0
+31
+!s108 1574373614.000000
+!s107 /home/melvinb/VLSIproject/RTL/mastrovito_7bit_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/melvinb/VLSIproject/RTL/mastrovito_7bit_tb.v|
+!i113 0
+R19
+R3
+vPointAdder
+R12
+!i10b 1
+!s100 2_<JjAUS[nOKGJU?B3P[R0
+IOg_KaFUECaj^<S:z3i4l_3
+R6
+R0
+R13
+R14
+R15
+L0 147
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R3
+n@point@adder
+vPointAdder_tb
+R5
+!i10b 1
+!s100 aJPL=>9]C<Od:8X;Iaki52
+Ig;kVP;`4ceF_?L@4JD2Hd1
+R6
+R0
+w1573779233
+8/home/melvinb/VLSIproject/RTL/PointAdder_tb.v
+F/home/melvinb/VLSIproject/RTL/PointAdder_tb.v
+L0 3
+R8
+r1
+!s85 0
+31
+R9
+!s107 /home/melvinb/VLSIproject/RTL/PointAdder_tb.v|
+!s90 -reportprogress|300|-work|VLSIProject|-vopt|-stats=none|/home/melvinb/VLSIproject/RTL/PointAdder_tb.v|
+!i113 0
+R10
+R3
+n@point@adder_tb
+vPointDouble
+R12
+!i10b 1
+!s100 UdELe;[o8Q4<Nn]:e4jOT1
+I3Pm?8BFzMdgaB9_g8=n?k1
+R6
+R0
+R13
+R14
+R15
+L0 193
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R3
+n@point@double
+vPointMultiplier
+R12
+!i10b 1
+!s100 i=X@llCL3a4Z85e;]OjCV1
+ID:KN3H]^zhI]R]=bNFaef2
+R6
+R0
+R13
+R14
+R15
+L0 238
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R3
+n@point@multiplier
+vPointMultiplier_tb
+!s110 1574373845
+!i10b 1
+!s100 I5Q6=i9]QSf__PCoZQmFI3
+I0iU]jCLj2]7mjaHgEM9F?3
+R6
+R0
+R11
+8/home/melvinb/VLSIproject/RTL/PointMultiplier_tb.v
+F/home/melvinb/VLSIproject/RTL/PointMultiplier_tb.v
+L0 2
+R8
+r1
+!s85 0
+31
+!s108 1574373845.000000
+!s107 /home/melvinb/VLSIproject/RTL/PointMultiplier_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/melvinb/VLSIproject/RTL/PointMultiplier_tb.v|
+!i113 0
+R19
+R3
+n@point@multiplier_tb
+vSquarer
+R12
+!i10b 1
+!s100 0ASPOcfl`5l^if1co`PGN2
+IZRdkK_9Yz^D@Azj1;MCI71
+R6
+R0
+R13
+R14
+R15
+L0 18
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R3
+n@squarer
