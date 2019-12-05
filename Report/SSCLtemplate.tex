@@ -1,0 +1,42 @@
+\documentclass{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+\title{  Elliptic Curve Arithmetic Unit Design }
+
+\author{Melvin Bosjnak Jr., Daniel Humeniuk, and Jaden Simon III}
+
+\maketitle
+
+\begin{abstract}
+
+Our group designed and implemented a unit to perform elliptic curve computations that would be used to strengthen and increase speed of cryptography in smaller systems with low processing power. The unit utilizes parallel in/out pads to accept input and provide output. The arithmetic used relies heavily on modulo multiplication, division, and addition.  
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+Elliptic curve cryptography, modulo multiplication, Mastrovito multiplier
+
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+As processors for embedded systems are becoming smaller and smaller, the computational power within is decreasing. Our Elliptic Curve Arithmetic Unit (ECAU) will serve as an external peripheral in order to keep small embedded systems secure while saving processors much needed computational power. The ECAU utilizes a clever scheme of gates and shift registers to implement modulo multiplication, division, and addition. 
+Use consecutive numbers to refer to prior work \cite{Ajay}.
+
+\section{The implementation}
+
+The modulo multiplication is a vital component to most cryptosystems \cite{Kallabook} and we utilized a Mastrovito multiplier to achieve this.
+
+
+\section{Conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,bib/ref}
+
+\end{document}
