@@ -7,15 +7,15 @@
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
-\title{  Elliptic Curve Arithmetic Unit Design }
+\title{Design and Implementation of an Elliptic Curve Arithmetic Unit}
 
-\author{Melvin Bosjnak Jr., Daniel Humeniuk, and Jaden Simon III}
+\author{Melvin Bosjnak Jr's Jr.., Dan ``The Man'' Humeniuk, and Sir Jaden Simon III}
 
 \maketitle
 
 \begin{abstract}
 
-Our group designed and implemented a unit to perform elliptic curve computations that would be used to strengthen and increase speed of cryptography in smaller systems with low processing power. The unit utilizes parallel in/out pads to accept input and provide output. The arithmetic used relies heavily on modulo multiplication, division, and addition.  
+Our group designed and implemented a 7-bit Elliptic Curve Arithmetic Unit which can multiply a point on an elliptic curve with a scalar. Elliptic-curve computations are expensive in software and thus the goal was to create a hardware implementation. This design is a proof-of-concept and would be need to be scaled up and generalized to be apart of a larger system. 
 
 \end{abstract}
 
@@ -26,17 +26,31 @@ Elliptic curve cryptography, modulo multiplication, Mastrovito multiplier
 
 \section{Introduction}
 
-As processors for embedded systems are becoming smaller and smaller, the computational power within is decreasing. Our Elliptic Curve Arithmetic Unit (ECAU) will serve as an external peripheral in order to keep small embedded systems secure while saving processors much needed computational power. The ECAU utilizes a clever scheme of gates and shift registers to implement modulo multiplication, division, and addition. 
-Use consecutive numbers to refer to prior work \cite{Ajay}.
+Cryptography is a major component of computer security and comprises a large portion of computations required by devices. Elliptic-curve cryptography (ECC) uses many floating-point division operations in software, requiring a huge amount of time to complete. Hardware acceleration seems like a good solution to this problem, freeing up processor time to be spent on other tasks. Our Elliptic Curve Arithmetic Unit (ECAU) serves as a proof-of-concept to be apart of a larger ECC system. ECC requires a couple key operations over elliptic curves: point addition and point-scalar multiplication. The ECAU implements point-addition and thereby point-scalar multiplication.
 
-\section{The implementation}
+Elliptic curves come in two forms: binary and prime. The binary curve works with binary extension fields and the prime curve works with prime fields. We chose to focus on the binary curve, primarily because the prime field is much harder to work on in hardware. In the binary field $\mathbb{F}_2$ there are only two elements: 0 and 1. To represent more elements, we can define a polynomial $P(x)$ whereby there is some number $\alpha$ that is a solution to $P=0$. If $P(x)$ is irreducible and of degree $m$, then elements within the field $\mathbb{F}_{2^m}$ can be represented as an $m-1$ degree polynomial: $a_{m-1}\alpha^{m-1} + a_1\alpha^{m-2} + ... + a_{0}$ where $a_{i} \in \mathbb{F}_2$. Notice that $m$-bit binary words are also elements within the field, each bit corresponding to an $a_{i}$. In order to create closure within the field, any operation done with the elements must be done modulo $P(x)$. Points on our curve are then a 2-tuple: $(x, y)$ where $x, y \in \mathbb{F}_{2^m}$.
 
-The modulo multiplication is a vital component to most cryptosystems \cite{Kallabook} and we utilized a Mastrovito multiplier to achieve this.
+\section{Implementation}
 
+To keep things simple, we restricted our design to 7-bits. This means working over the finite field with 128 elements $\mathbb{F}_{2^7}$ using the primitive polynomial $P(x) = x^7 + x + 1$. All operations done with elements in the finite field will need to be done modulo $P(x)$. A total of 37 IO pins were needed, 28 for the input/output point, 7 for the scalar, and 2 for control signals. 
+
+% Block diagram here
+
+Before computations over curves can be performed, primitive operations such as multiplication, addition, and inversion of finite field elements must be implemented. Addition is easily implemented as bitwise XOR because the characteristic of the field is 2, while multiplication was done through a combinational Mastrovito multiplier \cite{Kallabook}. For inversion, we implemented the extended binary GCD algorithm. This is by far the most expensive operation, future work would focus on optimizing the inversion operation.
+
+With the primitive operations done, we can now use equations derived from the Koblitz curve to perform point addition. [Insert Equations Somewhere] Doubling a point is the same thing as adding a point to itself, using the tangent to the curve in place of the slope. Point-scalar multiplication was done with the classic double-and-add algorithm commonly used in integer multiplication. Our final FSM uses a reset signal to begin the computation, then sets a done flag when the output is ready. 
+
+\section{Performance}
+
+\section{Future Work}
+Optimizing the inversion operation would yield the greatest benefit for increasing performance. Operating over a bigger finite field would dramatically increase security, and even better would be to create modules that work over arbitrary finite fields up to a large bit-size (say, 512 bits). Serial input/output would massively decrease the number of pins required. A fully-fleshed out cryptographic system that could perform key-generation, message-signing, and signature verification would be the ultimate goal. 
 
 \section{Conclusion}
+The ECAU shows that elliptic curve cryptography can be done in hardware with decent performance. More work will need to be done to scale up and generalize the modules to work with real-world applications. 
 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,bib/ref}
 
 \end{document}
+
+% Cite this http://cacr.uwaterloo.ca/hac/about/chap14.pdf
