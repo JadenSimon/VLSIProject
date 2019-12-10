@@ -4,6 +4,8 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
+\usepackage{caption}
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -35,6 +37,13 @@ Elliptic curves come in two forms: binary and prime. The binary curve works with
 To keep things simple, we restricted our design to 7-bits. This means working over the finite field with 128 elements $\mathbb{F}_{2^7}$ using the primitive polynomial $P(x) = x^7 + x + 1$. All operations done with elements in the finite field will need to be done modulo $P(x)$. A total of 37 IO pins were needed, 28 for the input/output point, 7 for the scalar, and 2 for control signals. 
 
 % Block diagram here
+\begin{figure}%[H]
+\centering
+\captionsetup{justification=centering}
+\includegraphics[width=0.5\textwidth]{images/blockdiagram.png}
+\caption{Block diagram of our implemented ECAU}
+\label{shell}
+\end{figure}
 
 Before computations over curves can be performed, primitive operations such as multiplication, addition, and inversion of finite field elements must be implemented. Addition is easily implemented as bitwise XOR because the characteristic of the field is 2, while multiplication was done through a combinational Mastrovito multiplier \cite{Kallabook}. For inversion, we implemented the extended binary GCD algorithm. This is by far the most expensive operation, future work would focus on optimizing the inversion operation.
 
