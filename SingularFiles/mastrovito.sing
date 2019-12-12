@@ -43,11 +43,11 @@ printf("Idea J is: ");
 
 J;
 
-//ideal G = groebner(J);
+ideal G = slimgroebner(J);
 
-//printf("Groebner basis of G of ideal J:")
+printf("Groebner basis of G of ideal J:")
 
-//G;
+G;
 
 printf("");
 printf("");
