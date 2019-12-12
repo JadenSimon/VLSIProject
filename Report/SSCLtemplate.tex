@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{caption}
+\usepackage{fontenc}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -45,7 +46,7 @@ To keep things simple, we restricted our design to 7-bits. This means working ov
 \label{block}
 \end{figure}
 
-Before computations over curves can be performed, primitive operations such as multiplication, addition, and inversion of finite field elements must be implemented. Addition is easily implemented as bitwise XOR because the characteristic of the field is 2, while multiplication was done through a combinational Mastrovito multiplier \cite{Kallabook}. We were able to perform formal verification of the Mastrovito multiplier circuit with the use of Singular. The specification of the circuit $Z=A*B$ was compared with the netlists for the circuit. Each polynomial in the netlist as well as the specification were instantiated an ideal which is a special subset of our ring. The computed the Gr\''{o}bner basis of the ideal resulted in 1 which proved that the Mastrovito multiplier was correct. For inversion, we implemented the extended binary GCD algorithm. This is by far the most expensive operation, future work would focus on optimizing the inversion operation.
+Before computations over curves can be performed, primitive operations such as multiplication, addition, and inversion of finite field elements must be implemented. Addition is easily implemented as bitwise XOR because the characteristic of the field is 2, while multiplication was done through a combinational Mastrovito multiplier \cite{Kallabook}. We were able to perform formal verification of the Mastrovito multiplier circuit with the use of Singular. The specification of the circuit $Z=A*B$ was compared with the netlists for the circuit. Each polynomial in the netlist as well as the specification were instantiated an ideal which is a special subset of our ring. The computed the Gr{\H o}bner basis of the ideal resulted in 1 which proved that the Mastrovito multiplier was correct. For inversion, we implemented the extended binary GCD algorithm. This is by far the most expensive operation, future work would focus on optimizing the inversion operation.
 
 With the primitive operations done, we can now use equations derived from the Koblitz curve to perform point addition. [Insert Equations Somewhere] Doubling a point is the same thing as adding a point to itself, using the tangent to the curve in place of the slope. Point-scalar multiplication was done with the classic double-and-add algorithm commonly used in integer multiplication. Our final FSM uses a reset signal to begin the computation, then sets a done flag when the output is ready. 
 
