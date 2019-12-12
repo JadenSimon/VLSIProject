@@ -63,9 +63,6 @@ Once our verilog code was complete, we selected our top module and synthesized t
 \label{chip}
 \end{figure}
 
-\section{Future Work}
-Optimizing the inversion operation would yield the greatest benefit for increasing performance. Operating over a bigger finite field would dramatically increase security, and even better would be to create modules that work over arbitrary finite fields up to a large bit-size (say, 512 bits). Serial input/output would massively decrease the number of pins required. A fully-fleshed out cryptographic system that could perform key-generation, message-signing, and signature verification would be the ultimate goal. 
-
 The specifications of the chip can be seen in the table below:
 
  \begin{tabular}{ l l }
@@ -74,6 +71,9 @@ The specifications of the chip can be seen in the table below:
   Maximum Clock Frequency & 125 $MHz$ \\
   Total Dynamic Power Consumption & 364.1495 ${\mu}W$\\
 \end{tabular}
+
+\section{Future Work}
+Optimizing the inversion operation would yield the greatest benefit for increasing performance. Operating over a bigger finite field would dramatically increase security, and even better would be to create modules that work over arbitrary finite fields up to a large bit-size (say, 512 bits). Serial input/output would massively decrease the number of pins required. A fully-fleshed out cryptographic system that could perform key-generation, message-signing, and signature verification would be the ultimate goal.
 
 \section{Conclusion}
 The ECAU shows that elliptic curve cryptography can be done in hardware with decent performance. More work will need to be done to scale up and generalize the modules to work with real-world applications. 
